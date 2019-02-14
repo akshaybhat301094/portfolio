@@ -1,9 +1,6 @@
-body{
-  margin: 0;
-  padding: 0;
-}
-
-.wrapper{
+.btn-wrapper {
+  position: relative;
+.btn-content{
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -66,4 +63,6 @@ body{
       left: -10%;
     }
   }
+}
+
 }
