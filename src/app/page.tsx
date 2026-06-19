@@ -7,7 +7,6 @@ import Link from 'next/link';
 
 import { HeroShader } from '@/components/shaders/HeroShader';
 import { ProjectShader } from '@/components/shaders/ProjectShader';
-import { ExperienceCardShader } from '@/components/shaders/ExperienceCardShader';
 import { Preloader } from '@/components/ui/Preloader';
 import { StickyCardStack } from '@/components/ui/StickyCardStack';
 import { MatrixRain } from '@/components/ui/MatrixRain';
