@@ -1,0 +1,94 @@
+[
+  {
+    "id": "adobe_experience",
+    "title": "Adobe Experience",
+    "description": "Akshay's current role as a Senior Engineer at Adobe. He led the transition of Adobe Advertising Cloud from legacy architecture to a next-gen Nx mono-repo, vastly increasing developer velocity. He also standardized the UI layer by migrating 30+ custom components to Web Components.",
+    "businessValue": "Shows leadership in large-scale infrastructure migrations, expertise in Nx mono-repos, and deep understanding of Web Components and design systems.",
+    "route": "/experience#adobe",
+    "relatedFeatures": [
+      "ai_workflows",
+      "core_skills"
+    ],
+    "focusTargets": [
+      "#adobe-section",
+      "#nx-monorepo-metric",
+      "#web-components-metric"
+    ],
+    "demoActions": [
+      "scroll_to_adobe",
+      "highlight_metrics"
+    ]
+  },
+  {
+    "id": "ai_workflows",
+    "title": "AI Workflow Engineering",
+    "description": "Pioneered the use of AI-driven tools like Devin and Cursor at Adobe to automate boilerplate and accelerate rapid prototyping for complex features.",
+    "businessValue": "Demonstrates forward-thinking engineering practices and the ability to leverage cutting-edge AI tools to increase team productivity and delivery speed.",
+    "route": "/experience#adobe",
+    "relatedFeatures": [
+      "adobe_experience"
+    ],
+    "focusTargets": [
+      "#ai-workflows-bullet"
+    ],
+    "demoActions": [
+      "zoom_in_ai_tools"
+    ]
+  },
+  {
+    "id": "nagarro_experience",
+    "title": "Nagarro Experience",
+    "description": "Associate Staff Engineer at Nagarro, where he spearheaded end-to-end design of complex UI systems including high-volume data grids. Achieved 30% performance improvements using background processing threads.",
+    "businessValue": "Highlights strong capabilities in performance optimization, memory management profiling using Chrome DevTools, and handling complex data grids.",
+    "route": "/experience#nagarro",
+    "relatedFeatures": [
+      "core_skills"
+    ],
+    "focusTargets": [
+      "#nagarro-section",
+      "#performance-metric"
+    ],
+    "demoActions": [
+      "scroll_to_nagarro",
+      "highlight_performance"
+    ]
+  },
+  {
+    "id": "core_skills",
+    "title": "Core Technical Skills",
+    "description": "Specialist in Angular and modern JavaScript. Proficient in TypeScript, React, Vue.js, RxJS, and Micro-Frontend architecture.",
+    "businessValue": "Validates deep technical expertise across modern frontend frameworks and architectural patterns.",
+    "route": "/skills",
+    "relatedFeatures": [
+      "adobe_experience",
+      "nagarro_experience"
+    ],
+    "focusTargets": [
+      "#skills-grid",
+      "#angular-specialist"
+    ],
+    "demoActions": [
+      "scroll_to_skills"
+    ]
+  },
+  {
+    "id": "portfolio_projects",
+    "title": "Featured Projects",
+    "description": "A showcase of Akshay's latest architectural and frontend projects. (More details coming soon).",
+    "businessValue": "Demonstrates practical application of skills in real-world scenarios and passion for building.",
+    "route": "/projects",
+    "relatedFeatures": ["core_skills"],
+    "focusTargets": ["#projects-section", "#project-card-1"],
+    "demoActions": ["scroll_to_projects"]
+  },
+  {
+    "id": "contact_me",
+    "title": "Contact Me",
+    "description": "Get in touch for frontend architecture consulting, AI-workflow implementation, or general inquiries.",
+    "businessValue": "Direct channel to connect with Akshay for potential collaborations.",
+    "route": "/contact",
+    "relatedFeatures": [],
+    "focusTargets": ["#contact-section", "#contact-form"],
+    "demoActions": ["scroll_to_contact"]
+  }
+]
