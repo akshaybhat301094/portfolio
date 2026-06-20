@@ -1,20 +1,106 @@
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { SkillsShader } from '@/components/shaders/SkillsShader';
+"use client";
 
-// Simple SVGs for logos
+import Link from 'next/link';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { SkillsShader } from '@/components/shaders/SkillsShader';
+import {
+  AngularIcon,
+  ReactIcon,
+  TypeScriptIcon,
+  JavaScriptIcon,
+  ClaudeIcon,
+  CursorIcon,
+  CodexIcon,
+  AntigravityIcon,
+  CopilotIcon,
+  HTML5Icon,
+  CSSIcon,
+} from '@/components/icons';
+
 const techStack = [
-  { name: 'Angular', color: '#DD0031', svg: '<svg viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg"><path d="M125 30L31.9 63.2l14.2 123.1L125 230l78.9-43.7 14.2-123.1z" fill="#dd0031"/><path d="M125 30v22.2-.1V230l78.9-43.7 14.2-123.1z" fill="#c3002f"/><path d="M125 52.1L66.8 182.6h21.7l11.7-29.2h49.4l11.7 29.2H183L125 52.1zm17 133.6H108l17-42.5 17 42.5z" fill="#fff"/></svg>' },
-  { name: 'React', color: '#61DAFB', svg: '<svg viewBox="-11.5 -10.23174 23 20.46348" xmlns="http://www.w3.org/2000/svg"><circle cx="0" cy="0" r="2.05" fill="#61dafb"/><g stroke="#61dafb" stroke-width="1" fill="none"><ellipse rx="11" ry="4.2"/><ellipse rx="11" ry="4.2" transform="rotate(60)"/><ellipse rx="11" ry="4.2" transform="rotate(120)"/></g></svg>' },
-  { name: 'TypeScript', color: '#3178C6', svg: '<svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"><path fill="#3178C6" d="M2.748 0h122.504c1.516 0 2.748 1.232 2.748 2.748v122.504c0 1.516-1.232 2.748-2.748 2.748H2.748C1.232 128 0 126.768 0 125.252V2.748C0 1.232 1.232 0 2.748 0z"/><path fill="#FFF" d="M72.046 64.912c-5.83-2.613-8.814-4.524-8.814-8.125 0-3.328 2.872-5.748 7.558-5.748 5.485 0 8.788 2.215 11.236 5.86l8.802-6.52c-3.69-5.59-8.917-9.39-20.038-9.39-11.854 0-19.467 6.843-19.467 16.536 0 10.155 7.42 14.28 17.067 18.5 6.786 2.96 10.378 5.253 10.378 9.324 0 4.195-3.393 6.643-8.814 6.643-6.61 0-11.134-3.13-14.398-7.98l-9.18 6.452c4.323 7.026 10.978 11.536 23.633 11.536 12.825 0 20.897-6.842 20.897-17.332 0-10.428-7.393-14.545-18.86-19.756zM32.88 43.12V100H44.8V53.646h17.92V43.12H32.88z"/></svg>' },
-  { name: 'Vue.js', color: '#4FC08D', svg: '<svg viewBox="0 0 256 221" xmlns="http://www.w3.org/2000/svg"><path fill="#41B883" d="M204.8 0H256L128 220.8 0 0h51.2L128 132.48z"/><path fill="#35495E" d="M204.8 0H153.6L128 44.16 102.4 0H51.2L128 132.48z"/></svg>' },
-  { name: 'JavaScript', color: '#F7DF1E', svg: '<svg viewBox="0 0 630 630" xmlns="http://www.w3.org/2000/svg"><path fill="#f7df1e" d="M0 0h630v630H0z"/><path d="m423.2 492.19c12.69 20.72 29.2 35.95 58.4 35.95 24.53 0 40.2-12.26 40.2-29.2 0-20.3-16.1-27.49-43.1-39.3l-14.8-6.35c-42.72-18.2-71.1-41-71.1-89.2 0-44.4 33.83-78.2 86.7-78.2 37.64 0 64.7 13.1 84.2 47.4l-46.1 29.6c-10.15-18.2-21.1-25.37-38.1-25.37-17.34 0-28.33 11-28.33 25.37 0 17.76 11 24.95 36.4 35.95l14.8 6.34c50.3 21.57 78.7 43.56 78.7 93 0 53.3-41.87 82.5-98.1 82.5-54.98 0-90.5-26.2-107.88-60.54zm-209.13 5.13c9.3 16.5 17.76 30.45 38.1 30.45 19.45 0 31.72-7.61 31.72-37.2v-201.3h59.2v202.1c0 61.3-35.94 89.2-88.4 89.2-47.4 0-74.85-24.53-88.81-54.075z"/></svg>' },
-  { name: 'Nx', color: '#143055', svg: '<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><path d="M50.419 70.366l31.11-47.01h26.49l-44.3 66.86-13.3-19.85z" fill="#0F172A"/><path d="M72.039 120L11.98 29.356v90.643H0V0h13.279L73.34 90.643V0h11.98v120z" fill="#0EA5E9"/></svg>' }
+  { name: 'Angular', color: '#DD0031', Icon: AngularIcon },
+  { name: 'React', color: '#61DAFB', Icon: ReactIcon },
+  { name: 'TypeScript', color: '#3178C6', Icon: TypeScriptIcon },
+  { name: 'HTML5', color: '#E34F26', Icon: HTML5Icon },
+  { name: 'CSS3', color: '#1572B6', Icon: CSSIcon },
+  { name: 'JavaScript', color: '#F7DF1E', Icon: JavaScriptIcon }
 ];
+
+const aiTools = [
+  { name: 'Claude', color: '#D97757', Icon: ClaudeIcon },
+  { name: 'Cursor', color: '#FFFFFF', Icon: CursorIcon },
+  { name: 'Codex', color: '#10B981', Icon: CodexIcon },
+  { name: 'Antigravity', color: '#8B5CF6', Icon: AntigravityIcon },
+  { name: 'Copilot', color: '#6366F1', Icon: CopilotIcon }
+];
+
+function SkillShowcase({ items, placeholder }: { items: any[], placeholder: string }) {
+  const [hoveredItem, setHoveredItem] = useState<any | null>(null);
+
+  const isLongWord = hoveredItem && hoveredItem.name.length > 8;
+  const activeTextClass = isLongWord
+    ? "text-[10vw] md:text-[6rem] lg:text-[8rem]"
+    : "text-[13vw] md:text-[8rem] lg:text-[11rem]";
+  
+  const defaultTextClass = "text-[13vw] md:text-[8rem] lg:text-[11rem]";
+
+  return (
+    <div className="flex flex-col items-center justify-center mb-24 w-full">
+      <div className="flex flex-wrap justify-center items-end gap-3 mb-8 relative z-20 h-32">
+        {items.map((item) => {
+          const isHovered = hoveredItem?.name === item.name;
+          return (
+            <div
+              key={item.name}
+              onMouseEnter={() => setHoveredItem(item)}
+              onMouseLeave={() => setHoveredItem(null)}
+              className={`w-20 h-20 rounded-2xl bg-zinc-900 border transition-all duration-300 ease-out flex items-center justify-center cursor-pointer origin-bottom
+                ${isHovered ? 'scale-150 border-zinc-400 bg-zinc-800 z-20 shadow-2xl mx-4' : 'border-zinc-800 opacity-60 hover:opacity-100 z-10'}
+              `}
+            >
+              <div className="w-10 h-10 transition-transform duration-300">
+                <item.Icon className="w-full h-full" style={{ color: isHovered ? item.color : '#888' }} />
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      
+      <div className="h-32 md:h-64 w-full flex items-center justify-center relative z-10">
+        <AnimatePresence mode="wait">
+          {hoveredItem ? (
+            <motion.h2
+              key={hoveredItem.name}
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: -20 }}
+              transition={{ duration: 0.2 }}
+              className={`${activeTextClass} w-full text-center leading-none font-black uppercase tracking-tighter drop-shadow-2xl text-white`}
+            >
+              {hoveredItem.name}
+            </motion.h2>
+          ) : (
+            <motion.h2
+              key="default"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.15 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className={`${defaultTextClass} w-full text-center leading-none font-black uppercase tracking-tighter text-white drop-shadow-2xl mix-blend-overlay`}
+            >
+              {placeholder}
+            </motion.h2>
+          )}
+        </AnimatePresence>
+      </div>
+    </div>
+  );
+}
 
 export default function Skills() {
   return (
-    <main className="min-h-screen bg-black text-white selection:bg-[#5606ff] selection:text-white pb-20">
+    <main className="min-h-screen bg-black text-white selection:bg-[#5606ff] selection:text-white pb-20 overflow-hidden">
       <SkillsShader variant="page" />
       <div className="relative z-10 p-8 md:p-24">
         <Link href="/" className="inline-flex items-center text-zinc-400 hover:text-white transition-colors mb-12 group">
@@ -24,22 +110,11 @@ export default function Skills() {
           Back to Matrix
         </Link>
 
-        <div className="max-w-5xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-white/50">Core Technical Skills</h1>
-          <p className="text-xl text-zinc-400 mb-16 max-w-2xl">Specialist in Angular and modern JavaScript ecosystems, with deep expertise in state management, mono-repos, and Web Components.</p>
+        <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
+          <p className="text-xl text-zinc-400 max-w-2xl mt-8 mb-24">Hover over the icons below to reveal the technologies I use to build robust applications and accelerate development.</p>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {techStack.map((tech) => (
-              <div key={tech.name} className="group relative p-8 rounded-2xl bg-zinc-900/50 border border-zinc-800 hover:border-zinc-600 transition-all duration-300 hover:bg-zinc-800/50 flex flex-col items-center justify-center gap-6 overflow-hidden">
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500" style={{ backgroundColor: tech.color }} />
-                <div 
-                  className="w-16 h-16 relative z-10 transition-transform duration-500 group-hover:scale-110"
-                  dangerouslySetInnerHTML={{ __html: tech.svg }}
-                />
-                <span className="font-medium tracking-wide relative z-10">{tech.name}</span>
-              </div>
-            ))}
-          </div>
+          <SkillShowcase items={techStack} placeholder="SKILLS" />
+          <SkillShowcase items={aiTools} placeholder="TOOLS" />
         </div>
       </div>
     </main>

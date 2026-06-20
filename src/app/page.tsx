@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import Image from 'next/image';
 
 import { HeroShader } from '@/components/shaders/HeroShader';
 import { ProjectShader } from '@/components/shaders/ProjectShader';
@@ -43,12 +44,14 @@ export default function Home() {
         <HeroShader />
         
         <div className="relative z-10 flex flex-col items-center text-center px-4 space-y-6">
+
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/40 drop-shadow-2xl">
             Akshay Bhat
           </h1>
-          <p className="text-xl md:text-2xl text-zinc-300 max-w-2xl font-light tracking-wide">
-            Senior Frontend Architect.
-            <br className="hidden md:block"/> Angular Specialist. AI Workflow Pioneer.
+          <p className="text-xl md:text-2xl text-zinc-300 max-w-2xl font-light tracking-wide leading-relaxed">
+            Frontend Architect @ Adobe <br className="hidden md:block" />
+            9+ Years Experience <br className="hidden md:block" />
+            Building AI-powered products and enterprise applications.
           </p>
           
           <button 
@@ -59,7 +62,7 @@ export default function Home() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#fe8989] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-3 w-3 bg-[#fe8989]"></span>
             </span>
-            Start AI Demo
+            Talk To My AI Twin
           </button>
         </div>
         
@@ -86,6 +89,14 @@ export default function Home() {
 
           <StickyCardStack 
             cards={[
+              {
+                id: 'about',
+                title: 'About Me',
+                description: 'Quick facts, interests, photography, and personal background.',
+                route: '/about',
+                tags: ['#personal', '#interests'],
+                shaderType: 'about'
+              },
               {
                 id: 'experience',
                 title: 'Professional Experience',

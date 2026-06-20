@@ -7,6 +7,7 @@ import { ExperienceShader } from "@/components/shaders/ExperienceShader";
 import { ProjectShader } from "@/components/shaders/ProjectShader";
 import { SkillsShader } from "@/components/shaders/SkillsShader";
 import { ContactShader } from "@/components/shaders/ContactShader";
+import { AboutShader } from "@/components/shaders/AboutShader";
 
 interface CardData {
   id: string;
@@ -47,6 +48,7 @@ const StickyCard = ({ card, i, progress, range, targetScale }: StickyCardProps) 
             {card.shaderType === 'project' && <ProjectShader variant="card" />}
             {card.shaderType === 'skills' && <SkillsShader variant="card" />}
             {card.shaderType === 'contact' && <ContactShader variant="card" />}
+            {card.shaderType === 'about' && <AboutShader variant="card" />}
           </div>
 
           <div className="relative z-20 h-full flex flex-col p-8 md:p-14 bg-black/40 backdrop-blur-[2px]">

@@ -54,14 +54,66 @@
     ]
   },
   {
+    "id": "zeta_experience",
+    "title": "Zeta Suite Experience",
+    "description": "SDE-2 at Zeta Suite working on the Sodexo project. Built a comprehensive marketplace store using Vue.js.",
+    "businessValue": "Shows adaptability to fast-paced environments and practical experience with Vue.js in e-commerce marketplace contexts.",
+    "route": "/experience#zeta suite",
+    "relatedFeatures": [
+      "core_skills"
+    ],
+    "focusTargets": [
+      "#zeta-suite-section"
+    ],
+    "demoActions": [
+      "scroll_to_zeta"
+    ]
+  },
+  {
+    "id": "fidelity_experience",
+    "title": "Fidelity International Experience",
+    "description": "Analyst Programmer at Fidelity International. Engineered a pension tracking and transfer tool for UK-based users.",
+    "businessValue": "Demonstrates experience in the FinTech sector, handling complex business logic for investment management platforms.",
+    "route": "/experience#fidelity international",
+    "relatedFeatures": [
+      "core_skills"
+    ],
+    "focusTargets": [
+      "#fidelity-international-section"
+    ],
+    "demoActions": [
+      "scroll_to_fidelity"
+    ]
+  },
+  {
+    "id": "infosys_experience",
+    "title": "Infosys Experience",
+    "description": "Senior Systems Engineer at Infosys. Launched high-impact features including a Google Maps-based community interface and a responsive planning framework.",
+    "businessValue": "Highlights early-career foundational engineering, map-based UI development, and robust application delivery.",
+    "route": "/experience#infosys",
+    "relatedFeatures": [
+      "core_skills"
+    ],
+    "focusTargets": [
+      "#infosys-section"
+    ],
+    "demoActions": [
+      "scroll_to_infosys"
+    ]
+  },
+  {
     "id": "core_skills",
     "title": "Core Technical Skills",
-    "description": "Specialist in Angular and modern JavaScript. Proficient in TypeScript, React, Vue.js, RxJS, and Micro-Frontend architecture.",
+    "description": "Specialist in Angular and modern JavaScript. Proficient in TypeScript, React, Vue.js, RxJS, and Micro-Frontend architecture. Features a visually refined neon skill grid with interactive tool icons, including dedicated sections for next-gen AI tools like Cursor, Codex, and Antigravity.",
     "businessValue": "Validates deep technical expertise across modern frontend frameworks and architectural patterns.",
     "route": "/skills",
     "relatedFeatures": [
       "adobe_experience",
-      "nagarro_experience"
+      "zeta_experience",
+      "nagarro_experience",
+      "fidelity_experience",
+      "infosys_experience",
+      "about_me"
     ],
     "focusTargets": [
       "#skills-grid",
@@ -69,6 +121,26 @@
     ],
     "demoActions": [
       "scroll_to_skills"
+    ]
+  },
+  {
+    "id": "about_me",
+    "title": "About Me",
+    "description": "A glimpse into Akshay's personal interests including Photography, Traveling, and Pets. Features a live Spotify playlist, a Connect section, and a timeline of Awards from Adobe, Nagarro, and Infosys.",
+    "businessValue": "Provides a comprehensive personal profile, showcasing well-rounded interests and personal achievements alongside professional milestones.",
+    "route": "/about",
+    "relatedFeatures": [
+      "contact_me",
+      "core_skills"
+    ],
+    "focusTargets": [
+      "#about-hobbies",
+      "#spotify-embed",
+      "#awards-section"
+    ],
+    "demoActions": [
+      "scroll_to_about",
+      "play_spotify"
     ]
   },
   {

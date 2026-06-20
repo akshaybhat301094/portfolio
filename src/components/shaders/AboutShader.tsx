@@ -12,13 +12,13 @@ const ShaderGradientCanvasAny = dynamic<any>(
   { ssr: false }
 );
 
-interface SkillsShaderProps {
+interface AboutShaderProps {
   variant?: 'card' | 'page';
 }
 
-export function SkillsShader({ variant = 'card' }: SkillsShaderProps) {
+export function AboutShader({ variant = 'card' }: AboutShaderProps) {
   const wrapperClass = variant === 'card' 
-    ? "absolute inset-0 z-0 opacity-60 pointer-events-none mix-blend-screen"
+    ? "absolute inset-0 z-0 opacity-80 pointer-events-none mix-blend-screen"
     : "fixed inset-0 z-0 pointer-events-none";
 
   return (
@@ -29,42 +29,42 @@ export function SkillsShader({ variant = 'card' }: SkillsShaderProps) {
           axesHelper="off"
           bgColor1="#000000"
           bgColor2="#000000"
-          brightness={1}
-          cAzimuthAngle={180}
-          cDistance={2.8}
-          cPolarAngle={80}
-          cameraZoom={5.01}
-          color1="#3b3180"
-          color2="#87ca97"
-          color3="#2f2727"
+          brightness={1.2}
+          cAzimuthAngle={298}
+          cDistance={3.6}
+          cPolarAngle={99}
+          cameraZoom={5.16}
+          color1="#ff5005"
+          color2="#dbba95"
+          color3="#d0bce1"
           destination="onCanvas"
           embedMode="off"
-          envPreset="dawn"
+          envPreset="lobby"
           format="gif"
           fov={45}
           frameRate={10}
           gizmoHelper="hide"
           grain="off"
-          lightType="3d"
+          lightType="env"
           pixelDensity={1}
-          positionX={0}
+          positionX={-1.4}
           positionY={0}
           positionZ={0}
           range="disabled"
           rangeEnd={40}
           rangeStart={0}
           reflection={0.1}
-          rotationX={50}
-          rotationY={0}
-          rotationZ={-60}
+          rotationX={0}
+          rotationY={10}
+          rotationZ={50}
           shader="defaults"
           type="sphere"
-          uAmplitude={0}
-          uDensity={1.5}
-          uFrequency={0}
-          uSpeed={0.3}
-          uStrength={0.3}
-          uTime={8}
+          uAmplitude={1}
+          uDensity={0.8}
+          uFrequency={5.5}
+          uSpeed={0.1}
+          uStrength={2.3}
+          uTime={0}
           wireframe={false}
           zoomOut={false}
         />
