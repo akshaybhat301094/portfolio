@@ -32,17 +32,12 @@ const StickyCard = ({ card, i, progress, range, targetScale }: StickyCardProps) 
   const scale = useTransform(progress, range, [1, targetScale]);
 
   return (
-    <div ref={containerRef} className="h-screen flex items-center justify-center sticky top-0">
+    <div ref={containerRef} className="h-screen flex items-center justify-center sticky top-0 pointer-events-none">
       <motion.div 
         style={{ scale, top: `calc(-5vh + ${i * 30}px)` }}
-        className="relative w-full max-w-5xl aspect-[4/3] md:aspect-[21/9] rounded-3xl overflow-hidden border border-zinc-800/50 bg-zinc-900 shadow-2xl origin-top"
+        className="relative w-full max-w-5xl aspect-[4/3] md:aspect-[21/9] rounded-3xl overflow-hidden border border-zinc-800/50 bg-zinc-900 shadow-2xl origin-top pointer-events-auto"
       >
         <Link href={card.route} className="block w-full h-full relative group">
-          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-10">
-            <div className="absolute -top-24 -right-24 w-64 h-64 bg-[#5606ff]/20 blur-[100px] rounded-full"></div>
-            <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-[#fe8989]/10 blur-[100px] rounded-full"></div>
-          </div>
-
           <div className="absolute inset-0 z-0">
             {card.shaderType === 'experience' && <ExperienceShader variant="card" />}
             {card.shaderType === 'project' && <ProjectShader variant="card" />}

@@ -17,7 +17,7 @@ interface ExperienceShaderProps {
 }
 
 export function ExperienceShader({ variant = 'card' }: ExperienceShaderProps) {
-  const wrapperClass = variant === 'card' 
+  const wrapperClass = variant === 'card'
     ? "absolute inset-0 z-0 opacity-60 pointer-events-none mix-blend-screen"
     : "fixed inset-0 z-0 pointer-events-none";
 
@@ -34,7 +34,7 @@ export function ExperienceShader({ variant = 'card' }: ExperienceShaderProps) {
           cDistance={2.4}
           cPolarAngle={179}
           cameraZoom={4.16}
-          color1="#ff6a1a"
+          color1="#f87b38ff"
           color2="#c73c00"
           color3="#FD4912"
           destination="onCanvas"

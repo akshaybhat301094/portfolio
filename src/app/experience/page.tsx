@@ -64,7 +64,7 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <main className="min-h-screen bg-black text-white selection:bg-[#5606ff] selection:text-white p-8 md:p-24 overflow-hidden relative">
+    <main className="min-h-screen bg-black text-white selection:bg-[#5606ff] selection:text-white p-6 md:p-24 overflow-hidden relative">
       <ExperienceShader variant="page" />
       <style dangerouslySetInnerHTML={{
         __html: `
@@ -72,9 +72,16 @@ export default function Experience() {
           from { opacity: 0; transform: translateY(60px); }
           to { opacity: 1; transform: translateY(0); }
         }
+        @keyframes borderFlow {
+          0% { background-position: 0% 50%; }
+          100% { background-position: 200% 50%; }
+        }
         .animate-fade-up {
           animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
           opacity: 0;
+        }
+        .animate-border-flow {
+          animation: borderFlow 3s linear infinite;
         }
       `}} />
 
@@ -122,32 +129,41 @@ export default function Experience() {
             <div
               key={exp.company}
               id={exp.company.toLowerCase()}
-              className="relative flex items-center justify-between group is-active animate-fade-up"
+              className="relative flex items-center justify-between group is-active animate-fade-up focus:outline-none cursor-pointer"
               style={{ animationDelay: `${0.2 + (index * 0.15)}s` }}
+              tabIndex={0}
             >
-              {/* Glowing Timeline Segment on Hover */}
-              <div className="absolute top-0 bottom-0 left-[1.25rem] md:left-1/2 w-0.5 -translate-x-px md:-translate-x-1/2 bg-[#ff810a] opacity-0 group-hover:opacity-100 shadow-[0_0_15px_#ff810a] transition-opacity duration-500 z-0" />
+              {/* Glowing Timeline Segment on Hover/Focus */}
+              <div className="absolute top-0 bottom-0 left-[1.25rem] md:left-1/2 w-0.5 -translate-x-px md:-translate-x-1/2 bg-[#ff810a] opacity-0 group-hover:opacity-100 group-focus:opacity-100 shadow-[0_0_15px_#ff810a] transition-opacity duration-500 z-0" />
 
               {/* Date (Left Side - Desktop Only) */}
               <div className="hidden md:flex w-[calc(50%-3rem)] justify-end pr-8 relative z-20">
-                <span className="text-2xl font-mono text-[#73bfc4] font-semibold tracking-wider group-hover:text-white transition-colors duration-300 drop-shadow-md">
+                <span className="text-2xl font-mono text-[#73bfc4] font-semibold tracking-wider group-hover:text-white group-focus:text-white transition-colors duration-300 drop-shadow-md">
                   {exp.period.split(' - ')[0]}
                 </span>
               </div>
 
               {/* Node (Center) */}
-              <div className="absolute left-[1.25rem] md:left-1/2 -translate-x-1/2 flex items-center justify-center w-10 h-10 rounded-full border-4 border-black bg-zinc-900 group-hover:scale-125 group-hover:bg-[#ff810a] group-hover:border-[#ff810a]/30 group-hover:shadow-[0_0_20px_rgba(255,129,10,0.6)] text-white shadow shrink-0 transition-all duration-300 z-20">
-                <div className="w-2 h-2 rounded-full bg-white group-hover:scale-150 transition-transform duration-300" />
+              <div className="absolute left-[1.25rem] md:left-1/2 -translate-x-1/2 flex items-center justify-center w-10 h-10 rounded-full border-4 border-black bg-zinc-900 group-hover:scale-125 group-focus:scale-125 group-hover:bg-[#ff810a] group-focus:bg-[#ff810a] group-hover:border-[#ff810a]/30 group-focus:border-[#ff810a]/30 group-hover:shadow-[0_0_20px_rgba(255,129,10,0.6)] group-focus:shadow-[0_0_20px_rgba(255,129,10,0.6)] text-white shadow shrink-0 transition-all duration-300 z-20">
+                <div className="w-2 h-2 rounded-full bg-white group-hover:scale-150 group-focus:scale-150 transition-transform duration-300" />
                 
                 {/* Horizontal Connecting Line (Desktop Only) */}
-                <div className="hidden md:block absolute left-full top-1/2 -translate-y-1/2 w-8 h-0.5 bg-zinc-800 group-hover:bg-[#ff810a] group-hover:shadow-[0_0_10px_#ff810a] transition-all duration-300 -z-10" />
+                <div className="hidden md:block absolute left-full top-1/2 -translate-y-1/2 w-8 h-0.5 bg-zinc-800 group-hover:bg-[#ff810a] group-focus:bg-[#ff810a] group-hover:shadow-[0_0_10px_#ff810a] group-focus:shadow-[0_0_10px_#ff810a] transition-all duration-300 -z-10" />
               </div>
 
               {/* Card (Right Side) */}
-              <div className="w-[calc(100%-4rem)] ml-[4rem] md:ml-0 md:w-[calc(50%-3rem)] p-6 rounded-2xl border border-zinc-800/50 bg-zinc-900/40 hover:bg-zinc-800/60 group-hover:-translate-y-2 group-hover:shadow-[0_15px_40px_rgba(255,129,10,0.15)] transition-all duration-300 backdrop-blur-md relative z-10">
-                <div className="flex flex-col mb-4">
+              <div className="w-[calc(100%-4rem)] ml-[4rem] md:ml-0 md:w-[calc(50%-3rem)] relative p-[1px] rounded-2xl transition-all duration-300 group-hover:-translate-y-2 group-focus:-translate-y-2 group-hover:shadow-[0_15px_40px_rgba(255,129,10,0.15)] group-focus:shadow-[0_15px_40px_rgba(255,129,10,0.15)] z-10 group/card">
+                {/* Default border */}
+                <div className="absolute inset-0 rounded-2xl border border-zinc-800/50 group-hover:opacity-0 group-focus:opacity-0 transition-opacity duration-300" />
+                
+                {/* Animated gradient background (acting as glowing border) */}
+                <div className="absolute inset-0 rounded-2xl bg-[linear-gradient(90deg,transparent,rgba(255,129,10,0.8),rgba(86,6,255,0.8),transparent)] bg-[length:200%_100%] animate-border-flow opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-500" />
+                
+                {/* Inner Card Content */}
+                <div className="relative h-full bg-zinc-900/80 backdrop-blur-xl rounded-2xl p-5 md:p-6">
+                  <div className="flex flex-col mb-4">
                   {/* Top Row: Logo and Date */}
-                  <div className="flex items-start justify-between mb-3">
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between mb-4 gap-3 sm:gap-0">
                     <span className="flex items-center h-8">
                       {exp.company === 'Adobe' ? <AdobeIcon className="w-20 h-auto text-[#eb1000] drop-shadow-[0_0_8px_rgba(235,16,0,0.5)]" /> :
                         exp.company === 'Zeta Suite' ? <ZetaIcon className="w-12 h-auto" /> :
@@ -156,17 +172,17 @@ export default function Experience() {
                               exp.company === 'Infosys' ? <InfosysIcon className="w-24 h-auto text-white" /> :
                                 exp.company}
                     </span>
-                    <div className="text-right ml-4 shrink-0">
-                      <span className="md:hidden text-[#73bfc4] font-mono text-sm block mb-1">{exp.period}</span>
+                    <div className="text-left sm:text-right shrink-0 mt-2 sm:mt-0">
+                      <span className="md:hidden text-[#73bfc4] font-mono text-sm block">{exp.period}</span>
                       <span className="hidden md:block text-zinc-500 font-mono text-xs uppercase tracking-wider">{exp.period}</span>
                     </div>
                   </div>
                   
                   {/* Bottom Row: Role and Location */}
-                  <div className="flex items-end justify-between">
-                    <h3 className="text-2xl font-bold pr-4">{exp.role}</h3>
-                    <span className="text-sm text-zinc-500 flex items-center gap-1.5 shrink-0 pb-1">
-                      <MapPin className="w-4 h-4" />
+                  <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 lg:gap-0">
+                    <h3 className="text-xl md:text-2xl font-bold pr-4">{exp.role}</h3>
+                    <span className="text-xs font-medium text-zinc-300 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full flex items-center gap-1.5 w-fit shrink-0 backdrop-blur-md transition-all group-hover:border-white/20 group-focus:border-white/20 group-hover:bg-white/10 group-focus:bg-white/10 group-hover:shadow-[0_0_10px_rgba(255,255,255,0.05)] group-focus:shadow-[0_0_10px_rgba(255,255,255,0.05)]">
+                      <MapPin className="w-3.5 h-3.5 text-zinc-400 group-hover:text-[#ff810a] group-focus:text-[#ff810a] transition-colors" />
                       {exp.location}
                     </span>
                   </div>
@@ -188,6 +204,7 @@ export default function Experience() {
                     );
                   })}
                 </ul>
+                </div>
               </div>
             </div>
           ))}

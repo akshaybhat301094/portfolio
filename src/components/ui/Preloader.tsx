@@ -4,13 +4,14 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 const words = [
-  "Hello", 
-  "Bonjour", 
-  "Ciao", 
-  "Olá", 
-  "やあ", 
-  "Hallå", 
-  "Guten tag", 
+  "Hello",
+  "Namaste",
+  "Bonjour",
+  "Ciao",
+  "Olá",
+  "やあ",
+  "Hallå",
+  "Guten tag",
   "Hallo"
 ];
 
@@ -24,11 +25,11 @@ export function Preloader() {
 
   useEffect(() => {
     if (index === words.length - 1) return;
-    
+
     const timeout = setTimeout(() => {
       setIndex(index + 1);
     }, index === 0 ? 1000 : 150);
-    
+
     return () => clearTimeout(timeout);
   }, [index]);
 
@@ -55,18 +56,18 @@ export function Preloader() {
   };
 
   return (
-    <motion.div 
-      variants={slideUp} 
-      initial="initial" 
-      exit="exit" 
+    <motion.div
+      variants={slideUp}
+      initial="initial"
+      exit="exit"
       className="fixed inset-0 z-[100] flex items-center justify-center bg-zinc-950 text-white"
     >
       {dimension.width > 0 && (
         <svg className="absolute top-0 left-0 w-full h-[calc(100%+300px)] pointer-events-none">
-          <motion.path 
-            variants={curve} 
-            initial="initial" 
-            exit="exit" 
+          <motion.path
+            variants={curve}
+            initial="initial"
+            exit="exit"
             fill="#09090b"
           />
         </svg>
