@@ -75,6 +75,7 @@ export default function Contact() {
               <input 
                 type="text" 
                 id="name" 
+                name="name"
                 required
                 className="w-full px-4 py-3 rounded-xl bg-zinc-900/50 border border-zinc-800 focus:border-[#5606ff] focus:ring-1 focus:ring-[#5606ff] outline-none transition-all text-white"
                 placeholder="John Doe"
@@ -85,6 +86,7 @@ export default function Contact() {
               <input 
                 type="email" 
                 id="email" 
+                name="email"
                 required
                 className="w-full px-4 py-3 rounded-xl bg-zinc-900/50 border border-zinc-800 focus:border-[#5606ff] focus:ring-1 focus:ring-[#5606ff] outline-none transition-all text-white"
                 placeholder="john@example.com"
@@ -94,6 +96,7 @@ export default function Contact() {
               <label htmlFor="message" className="block text-sm font-medium text-zinc-400 mb-2">Message</label>
               <textarea 
                 id="message" 
+                name="message"
                 required
                 rows={5}
                 className="w-full px-4 py-3 rounded-xl bg-zinc-900/50 border border-zinc-800 focus:border-[#5606ff] focus:ring-1 focus:ring-[#5606ff] outline-none transition-all text-white resize-none"

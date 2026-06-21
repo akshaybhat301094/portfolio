@@ -56,6 +56,7 @@ export default function Home() {
           
           <button 
             id="start-demo-btn"
+            onClick={() => window.dispatchEvent(new CustomEvent('start-voice-demo'))}
             className="mt-12 px-8 py-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-medium hover:bg-white hover:text-black transition-all duration-300 flex items-center gap-3 shadow-[0_0_40px_rgba(86,6,255,0.3)] hover:shadow-[0_0_60px_rgba(254,137,137,0.5)] transform hover:-translate-y-1"
           >
             <span className="relative flex h-3 w-3">

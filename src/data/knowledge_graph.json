@@ -1,5 +1,15 @@
 [
   {
+    "id": "home_page",
+    "title": "Home / Landing Page",
+    "description": "The main landing page or home page of Akshay's portfolio website. It features the primary call to action to speak with his AI twin, a list of primary areas (About, Experience, Projects, Skills, Contact), and a matrix rain background.",
+    "businessValue": "Welcome page introducing the interactive portfolio.",
+    "route": "/",
+    "relatedFeatures": ["about_me", "portfolio_projects", "core_skills", "contact_me"],
+    "focusTargets": ["body"],
+    "demoActions": ["navigate_to_home"]
+  },
+  {
     "id": "adobe_experience",
     "title": "Adobe Experience",
     "description": "Akshay's current role as a Senior Engineer at Adobe. He led the transition of Adobe Advertising Cloud from legacy architecture to a next-gen Nx mono-repo, vastly increasing developer velocity. He also standardized the UI layer by migrating 30+ custom components to Web Components.",
@@ -22,7 +32,7 @@
   {
     "id": "ai_workflows",
     "title": "AI Workflow Engineering",
-    "description": "Pioneered the use of AI-driven tools like Devin and Cursor at Adobe to automate boilerplate and accelerate rapid prototyping for complex features.",
+    "description": "Pioneered the use of next-generation AI-driven tools like Devin, Cursor, and Claude Code at Adobe to automate boilerplate and accelerate rapid prototyping for complex features.",
     "businessValue": "Demonstrates forward-thinking engineering practices and the ability to leverage cutting-edge AI tools to increase team productivity and delivery speed.",
     "route": "/experience#adobe",
     "relatedFeatures": [
@@ -104,7 +114,7 @@
   {
     "id": "core_skills",
     "title": "Core Technical Skills",
-    "description": "Specialist in Angular and modern JavaScript. Proficient in TypeScript, React, Vue.js, RxJS, and Micro-Frontend architecture. Features a visually refined neon skill grid with interactive tool icons, including dedicated sections for next-gen AI tools like Cursor, Codex, and Antigravity.",
+    "description": "Specialist in Angular and modern JavaScript. Proficient in TypeScript, React, Vue.js, RxJS, and Micro-Frontend architecture. Features a visually refined neon skill grid with interactive tool icons, including dedicated sections for next-gen AI tools like Cursor, Claude Code, Codex, and Antigravity.",
     "businessValue": "Validates deep technical expertise across modern frontend frameworks and architectural patterns.",
     "route": "/skills",
     "relatedFeatures": [
@@ -126,7 +136,7 @@
   {
     "id": "about_me",
     "title": "About Me",
-    "description": "A glimpse into Akshay's personal interests including Photography, Traveling, and Pets. Features a live Spotify playlist, a Connect section, and a timeline of Awards from Adobe, Nagarro, and Infosys.",
+    "description": "A glimpse into Akshay's personal interests including Photography, Traveling, and Pets. Features a live Spotify playlist, a Connect section, and a timeline of Awards: Org-level Hackathon Winner and 3x Spot Award at Adobe, A-Team Award and Cheerboard Award at Nagarro, and 3x Insta Award at Infosys.",
     "businessValue": "Provides a comprehensive personal profile, showcasing well-rounded interests and personal achievements alongside professional milestones.",
     "route": "/about",
     "relatedFeatures": [
@@ -146,12 +156,52 @@
   {
     "id": "portfolio_projects",
     "title": "Featured Projects",
-    "description": "A showcase of Akshay's latest architectural and frontend projects. (More details coming soon).",
+    "description": "A showcase of Akshay's latest architectural and frontend projects, including NameApp, AI Resume Builder, EqLens, and Flokk.",
     "businessValue": "Demonstrates practical application of skills in real-world scenarios and passion for building.",
     "route": "/projects",
-    "relatedFeatures": ["core_skills"],
-    "focusTargets": ["#projects-section", "#project-card-1"],
+    "relatedFeatures": ["core_skills", "project_nameapp", "project_ai_resume_builder", "project_eqlens", "project_flokk"],
+    "focusTargets": ["#projects-section"],
     "demoActions": ["scroll_to_projects"]
+  },
+  {
+    "id": "project_nameapp",
+    "title": "NameApp Project",
+    "description": "A platform to help you discover and purchase the perfect domain name for your next big idea.",
+    "businessValue": "Exhibits practical application of domains, integrations, and startup MVP development.",
+    "route": "/projects",
+    "relatedFeatures": ["portfolio_projects"],
+    "focusTargets": ["#project-card-1"],
+    "demoActions": ["scroll_to_nameapp"]
+  },
+  {
+    "id": "project_ai_resume_builder",
+    "title": "AI Resume Builder Project",
+    "description": "An intelligent application that uses AI to help you construct a professional, high-impact resume in minutes.",
+    "businessValue": "Demonstrates integration of LLMs/AI with interactive document generation in Next.js.",
+    "route": "/projects",
+    "relatedFeatures": ["portfolio_projects"],
+    "focusTargets": ["#project-card-2"],
+    "demoActions": ["scroll_to_resume_builder"]
+  },
+  {
+    "id": "project_eqlens",
+    "title": "EqLens Project",
+    "description": "Advanced Market Ripple Explorer. Trace news impacts and cascading effects across Indian and Global equities with AI-driven intelligence.",
+    "businessValue": "Highlights FinTech experience, handling heavy data relationships, and AI-driven market intelligence.",
+    "route": "/projects",
+    "relatedFeatures": ["portfolio_projects"],
+    "focusTargets": ["#project-card-3"],
+    "demoActions": ["scroll_to_eqlens"]
+  },
+  {
+    "id": "project_flokk",
+    "title": "Flokk Project",
+    "description": "A community-driven travel platform that helps people connect through travel.",
+    "businessValue": "Shows expertise in map integrations, community networks, and user-generated travel content systems.",
+    "route": "/projects",
+    "relatedFeatures": ["portfolio_projects"],
+    "focusTargets": ["#project-card-4"],
+    "demoActions": ["scroll_to_flokk"]
   },
   {
     "id": "contact_me",
@@ -162,5 +212,15 @@
     "relatedFeatures": [],
     "focusTargets": ["#contact-section", "#contact-form"],
     "demoActions": ["scroll_to_contact"]
+  },
+  {
+    "id": "education_history",
+    "title": "Education History",
+    "description": "Akshay holds a Bachelor of Technology (BTech) in Electronics and Communications Engineering from B.M. Institute of Engineering and Technology (2012-2016). He also completed a Frontend Developer Nanodegree from Udacity, and studied at Army Public School Udhampur (2003-2012).",
+    "businessValue": "Provides the foundational engineering academic background and specialized web development certification that supports his senior roles.",
+    "route": "/about",
+    "relatedFeatures": ["about_me"],
+    "focusTargets": ["#education-section"],
+    "demoActions": ["scroll_to_education"]
   }
 ]

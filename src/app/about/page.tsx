@@ -292,7 +292,7 @@ export default function About() {
                   ></iframe>
                 </div>
 
-                <div className="pt-6 border-t border-white/10 mt-6">
+                <div id="education-section" className="pt-6 border-t border-white/10 mt-6">
                   <h3 className="text-xl font-bold mb-4 text-white">Education</h3>
                   <div className="space-y-6">
                     <div className="flex flex-col">

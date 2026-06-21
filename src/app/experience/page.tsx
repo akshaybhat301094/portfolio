@@ -128,7 +128,7 @@ export default function Experience() {
           {experiences.map((exp, index) => (
             <div
               key={exp.company}
-              id={exp.company.toLowerCase()}
+              id={`${exp.company.toLowerCase().replace(/\s+/g, '-')}-section`}
               className="relative flex items-center justify-between group is-active animate-fade-up focus:outline-none cursor-pointer"
               style={{ animationDelay: `${0.2 + (index * 0.15)}s` }}
               tabIndex={0}
